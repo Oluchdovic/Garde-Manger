@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GardeManger.Application.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GardeManger.Infrastructure.Data", "GardeManger.Infrastructure.Data\GardeManger.Infrastructure.Data.csproj", "{0DE9E678-879D-4BDF-ADBC-D86F28F024C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardeManger.Application.Services", "GardeManger.Application.Services\GardeManger.Application.Services.csproj", "{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardeManger.Application.DTOs", "GardeManger.Application.DTOs\GardeManger.Application.DTOs.csproj", "{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{0DE9E678-879D-4BDF-ADBC-D86F28F024C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DE9E678-879D-4BDF-ADBC-D86F28F024C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DE9E678-879D-4BDF-ADBC-D86F28F024C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

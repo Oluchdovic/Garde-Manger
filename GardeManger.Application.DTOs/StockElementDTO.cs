@@ -1,17 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GardeManger.Entities
+namespace GardeManger.Application.DTOs
 {
-    [Table("StockElements")]
-    public class StockElement
+    public class StockElementDTO
     {
-        /// <summary>
-        /// Stock element Id
-        /// </summary>
-        [Key]
-        public int StockElementId { get; set; }
 
         /// <summary>
         /// Name of the element
@@ -37,5 +29,6 @@ namespace GardeManger.Entities
         /// Duration of conservation after opening
         /// </summary>
         public TimeSpan? ConservationPeriodAfterOpening { get; set; }
+
     }
 }
