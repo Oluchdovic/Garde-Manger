@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GardeManger.Application.DTOs\GardeManger.Application.DTOs.csproj" />
     <ProjectReference Include="..\GardeManger.Infrastructure.Data\GardeManger.Infrastructure.Data.csproj" />
   </ItemGroup>
 

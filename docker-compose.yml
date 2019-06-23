@@ -6,7 +6,7 @@ services:
   webapp:
     container_name: webapi_container
     build:
-      context: ./GardeManger
+      context: ./GardeManger.WebApi
       dockerfile: Dockerfile
     restart: always
     ports:

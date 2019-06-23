@@ -1,6 +1,7 @@
 ﻿using GardeManger.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GardeManger.Application.DTOs.Factories
@@ -12,19 +13,22 @@ namespace GardeManger.Application.DTOs.Factories
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public static StockElement ConvertToEntity(this StockElementDTO dto)
+        public static List<StockElement> ConvertToEntity(StockElementDTO dto)
         {
-
-            var entity = new StockElement()
+            var stockElementList = new List<StockElement>();
+            for (int i = 0; i < dto.Quantity; i++)
             {
-                Name = dto.Name,
-                PurchaseDate = dto.PurchaseDate,
-                ExpirationDate = dto.ExpirationDate != DateTime.MinValue ? dto.ExpirationDate : (DateTime?)null,
-                OpeningDate = dto.OpeningDate != DateTime.MinValue ? dto.OpeningDate : (DateTime?)null,
-                ConservationPeriodAfterOpening = dto.ConservationPeriodAfterOpening != TimeSpan.MinValue ? dto.ConservationPeriodAfterOpening : (TimeSpan?)null,
-            };
+                stockElementList.Add(new StockElement()
+                {
+                    Name = dto.Name,
+                    PurchaseDate = dto.PurchaseDate,
+                    ExpirationDate = dto.ExpirationDate != DateTime.MinValue ? dto.ExpirationDate : (DateTime?)null,
+                    OpeningDate = dto.OpeningDate != DateTime.MinValue ? dto.OpeningDate : (DateTime?)null,
+                    ConservationPeriodAfterOpening = dto.ConservationPeriodAfterOpening != TimeSpan.MinValue ? dto.ConservationPeriodAfterOpening : (TimeSpan?)null,
+                });
+            }
 
-            return entity;
+            return stockElementList;
         }
 
 
@@ -33,7 +37,7 @@ namespace GardeManger.Application.DTOs.Factories
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public static StockElementDTO ConvertToDtos(this StockElement entity)
+        public static StockElementDTO ConvertToDto(StockElement entity)
         {
             var dto = new StockElementDTO()
             {
@@ -45,6 +49,26 @@ namespace GardeManger.Application.DTOs.Factories
             };
 
             return dto;
+        }
+
+        /// <summary>
+        /// Convert a list of entities into a list of dtos
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <returns></returns>
+        public static List<StockElementDTO> ConvertToDtos(List<StockElement> entities)
+        {
+            var stockElements = entities.GroupBy(x => new { x.Name, x.OpeningDate }).ToList();
+            var stockElementDtos = new List<StockElementDTO>();
+            foreach (var groupedElements in stockElements)
+            {
+                var dto = groupedElements.Select(StockElementFactory.ConvertToDto).FirstOrDefault();
+                dto.Quantity = groupedElements.Count();
+
+                stockElementDtos.Add(dto);
+            }
+
+            return stockElementDtos;
         }
 
 

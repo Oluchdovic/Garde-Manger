@@ -11,6 +11,7 @@ namespace GardeManger.Entities
         /// Stock element Id
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StockElementId { get; set; }
 
         /// <summary>

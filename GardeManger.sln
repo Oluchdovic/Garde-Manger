@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GardeManger.Application.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GardeManger.Infrastructure.Data", "GardeManger.Infrastructure.Data\GardeManger.Infrastructure.Data.csproj", "{0DE9E678-879D-4BDF-ADBC-D86F28F024C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardeManger.Application.Services", "GardeManger.Application.Services\GardeManger.Application.Services.csproj", "{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GardeManger.Application.Services", "GardeManger.Application.Services\GardeManger.Application.Services.csproj", "{B2A15B8F-2A64-41F7-BEAC-BF4026C27F83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardeManger.Application.DTOs", "GardeManger.Application.DTOs\GardeManger.Application.DTOs.csproj", "{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GardeManger.Application.DTOs", "GardeManger.Application.DTOs\GardeManger.Application.DTOs.csproj", "{BD65321C-2035-45B0-BFC7-BB6EF91B66CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{69BAB76A-36F5-4821-9A99-499CAEAD3880}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

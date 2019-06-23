@@ -11,6 +11,11 @@ namespace GardeManger.Application.DTOs
         public string Name { get; set; }
 
         /// <summary>
+        /// Name of the element
+        /// </summary>
+        public int Quantity { get; set; }
+
+        /// <summary>
         /// Date of expiration
         /// </summary>
         public DateTime? ExpirationDate { get; set; }
