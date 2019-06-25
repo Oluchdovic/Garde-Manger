@@ -34,6 +34,12 @@ namespace GardeManger.WebApi.Controllers
         public ActionResult<IEnumerable<StockElementDTO>> Get(string name)
         {
             var stockList = _stockElementApplicationService.GetByFilter(name);
+
+            if (stockList == null)
+            {
+                return NotFound();
+            }
+
             return stockList;
         }
 
@@ -43,10 +49,16 @@ namespace GardeManger.WebApi.Controllers
             _stockElementApplicationService.CreateNew(newStockElement);
         }
 
-        [HttpPost("{name}")]
-        public void UpdateOpeningDate(string name, TimeSpan conservationPeriod)
+        [HttpPut]
+        public void UpdateOpeningDate(OpeningStockElementDTO stockElementToUpdate)
         {
-            _stockElementApplicationService.UpdateStockElement(name, conservationPeriod);
+            _stockElementApplicationService.UpdateStockElement(stockElementToUpdate);
+        }
+
+        [HttpDelete("{name}")]
+        public void DeleteElementStock( DeletedStockElementDTO stockElementToDelete)
+        {
+
         }
 
     }

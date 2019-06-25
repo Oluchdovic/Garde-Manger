@@ -31,7 +31,6 @@ namespace GardeManger.Application.DTOs.Factories
             return stockElementList;
         }
 
-
         /// <summary>
         /// Convert entity to dto
         /// </summary>
@@ -69,6 +68,18 @@ namespace GardeManger.Application.DTOs.Factories
             }
 
             return stockElementDtos;
+        }
+
+        public static StockElement UpdateEntity(StockElement stockElement, OpeningStockElementDTO updateDto)
+        {
+            if(updateDto.ConservationPeriodAfterOpening != null)
+                stockElement.ConservationPeriodAfterOpening = updateDto.ConservationPeriodAfterOpening;
+
+            if (updateDto.OpeningDate != null)
+                stockElement.OpeningDate = updateDto.OpeningDate;
+
+            return stockElement;
+
         }
 
 

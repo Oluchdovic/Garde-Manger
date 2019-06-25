@@ -1,24 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace GardeManger.Application.DTOs
 {
-    public class StockElementDTO
+    public class OpeningStockElementDTO
     {
-
         /// <summary>
         /// Name of the element
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Name of the element
-        /// </summary>
-        public int Quantity { get; set; }
-
-        /// <summary>
-        /// Date of expiration
-        /// </summary>
-        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// Date of expiration after opening
@@ -26,14 +17,8 @@ namespace GardeManger.Application.DTOs
         public DateTime? OpeningDate { get; set; }
 
         /// <summary>
-        /// Purchase date of the product
-        /// </summary>
-        public DateTime PurchaseDate { get; set; }
-
-        /// <summary>
         /// Duration of conservation after opening
         /// </summary>
         public TimeSpan? ConservationPeriodAfterOpening { get; set; }
-        
     }
 }

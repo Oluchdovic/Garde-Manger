@@ -28,7 +28,7 @@ namespace GardeManger
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            
             services.AddEntityFrameworkNpgsql()
                .AddDbContext<DatabaseContext>()
                 .BuildServiceProvider();
@@ -50,10 +50,17 @@ namespace GardeManger
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+
             }
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
         }
     }
 }

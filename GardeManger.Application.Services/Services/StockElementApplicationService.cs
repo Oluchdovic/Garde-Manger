@@ -43,15 +43,16 @@ namespace GardeManger.Application.Services.Services
             }
         }
 
-        public void UpdateStockElement(string elementName, TimeSpan conservationPeriod)
+        public void UpdateStockElement(OpeningStockElementDTO updatedStockElements)
         {
             using (var dbContext = new DatabaseContext())
             {
-                var stockElement = dbContext.StockElements.Where(x => x.Name == elementName && x.OpeningDate == null).FirstOrDefault();
+                var stockElement = dbContext.StockElements.Where(x => x.Name == updatedStockElements.Name && x.OpeningDate == null).FirstOrDefault();
                 if(stockElement != null)
                 {
-                    stockElement.OpeningDate = DateTime.Now;
-                    stockElement.ConservationPeriodAfterOpening = conservationPeriod;
+                    var updatedStockElement = StockElementFactory.UpdateEntity(stockElement, updatedStockElements);
+                    dbContext.Update(updatedStockElement);
+
                     dbContext.SaveChanges();
                 }
             }
