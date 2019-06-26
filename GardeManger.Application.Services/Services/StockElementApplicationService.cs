@@ -58,5 +58,37 @@ namespace GardeManger.Application.Services.Services
             }
         }
 
+        public void DeleteStockElement(DeletedStockElementDTO deletedStockElement)
+        {
+            using(var dbContext = new DatabaseContext())
+            {
+                var toDeleteElement = new List<StockElement>();
+                var stockElement = dbContext.StockElements.Where(x => x.Name == deletedStockElement.Name).ToList();
+
+                if(deletedStockElement.IsExpired && !deletedStockElement.IsOpened)
+                {
+                    toDeleteElement = stockElement.Where(se => se.IsExpired).Take(deletedStockElement.Quantity).ToList();
+                }
+
+                if (!deletedStockElement.IsExpired && deletedStockElement.IsOpened)
+                {
+                    toDeleteElement = stockElement.Where(se => se.IsOpened).Take(deletedStockElement.Quantity).ToList();
+                }
+
+                if (deletedStockElement.IsExpired && deletedStockElement.IsOpened)
+                {
+                    toDeleteElement = stockElement.Where(se => se.IsOpened && se.IsExpired).Take(deletedStockElement.Quantity).ToList();
+                }
+
+                foreach(var element in toDeleteElement)
+                {
+                    dbContext.Remove(element);
+                }
+
+                dbContext.SaveChanges();
+
+            }
+        }
+
     }
 }

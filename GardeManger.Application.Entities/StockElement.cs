@@ -38,5 +38,35 @@ namespace GardeManger.Entities
         /// Duration of conservation after opening
         /// </summary>
         public TimeSpan? ConservationPeriodAfterOpening { get; set; }
+
+        /// <summary>
+        /// Is the product expired
+        /// </summary>
+        [NotMapped]
+        public bool IsExpired
+        {
+            get
+            {
+                var isExpirationDateReached = ExpirationDate.HasValue ? ExpirationDate < DateTime.Now : false;
+                var isConsomptionPeriodReached = ConservationPeriodAfterOpening.HasValue && OpeningDate.HasValue ? OpeningDate.Value.Add(ConservationPeriodAfterOpening.Value) < DateTime.Now : false;
+
+                return isExpirationDateReached || isConsomptionPeriodReached;
+            }
+
+        }
+
+        /// <summary>
+        /// Is the product expired
+        /// </summary>
+        [NotMapped]
+        public bool IsOpened
+        {
+            get
+            {
+                return OpeningDate.HasValue;
+            }
+
+        }
+
     }
 }

@@ -56,10 +56,10 @@ namespace GardeManger.WebApi.Controllers
         }
 
         [HttpDelete("{name}")]
-        public void DeleteElementStock( DeletedStockElementDTO stockElementToDelete)
+        public void DeleteElementStock(DeletedStockElementDTO stockElementToDelete)
         {
-
+            _stockElementApplicationService.DeleteStockElement(stockElementToDelete);
         }
-
+    
     }
 }

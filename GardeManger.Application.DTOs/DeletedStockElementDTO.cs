@@ -9,6 +9,11 @@ namespace GardeManger.Application.DTOs
         /// <summary>
         /// Quantity to delete
         /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Quantity to delete
+        /// </summary>
         public int Quantity { get; set; }
 
         /// <summary>
